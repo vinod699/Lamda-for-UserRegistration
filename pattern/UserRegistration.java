@@ -1,13 +1,23 @@
+
 import java.util.Scanner;
-        import java.util.regex.Pattern;
+import java.util.regex.Pattern;
 
 public class UserRegistration {
     String firstName;
+    String lastName;
     Scanner input=new Scanner(System.in);
 
     //Method to get firstname
     public String getFirstName(){
         System.out.println("Enter first name: ");
+        System.out.println("Rules: ");
+        System.out.println("First letter should be Capital letter and minimum 3 characters");
+        return input.nextLine();
+    }
+
+    //Method to get lastname
+    public String getLastName(){
+        System.out.println("Enter last name: ");
         System.out.println("Rules: ");
         System.out.println("First letter should be Capital letter and minimum 3 characters");
         return input.nextLine();
@@ -20,6 +30,10 @@ public class UserRegistration {
         boolean fName= Pattern.matches("^[A-Z][a-z]{2,}", firstName);
         System.out.println("First name is ");
         printingResult(fName);
+        this.lastName=getLastName();
+        boolean lName=Pattern.matches("^[A-Z][a-z]{2,}", lastName);
+        System.out.println("Last name is ");
+        printingResult(lName);
 
     }
 
