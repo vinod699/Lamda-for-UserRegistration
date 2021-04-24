@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -6,6 +7,7 @@ public class UserRegistration {
     String lastName;
     String email;
     String mobileNo;
+    String password;
     Scanner input=new Scanner(System.in);
 
     //Method to get firstname
@@ -38,7 +40,14 @@ public class UserRegistration {
         return input.nextLine();
     }
 
-
+    //Method to get Password
+    public String getPassword()
+    {
+        System.out.println("Enter a valid password: ");
+        System.out.println("Rule 1:");
+        System.out.println("Minimum 8 characters");
+        return input.nextLine();
+    }
 
     //Method for validation
     public void userValidator()
@@ -59,6 +68,10 @@ public class UserRegistration {
         boolean mobile=Pattern.matches("\\d{1,2}[\\s+]?\\d{1,10}",mobileNo);
         System.out.println("Mobile Number is: ");
         printingResult(mobile);
+        this.password=getPassword();
+        boolean correctPassword = Pattern.matches("[a-zA-Z]{8,}",password);
+        System.out.println("Password is: ");
+        printingResult(correctPassword);
     }
 
     //Method to print result
