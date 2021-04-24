@@ -5,6 +5,7 @@ public class UserRegistration {
     String firstName;
     String lastName;
     String email;
+    String mobileNo;
     Scanner input=new Scanner(System.in);
 
     //Method to get firstname
@@ -30,6 +31,14 @@ public class UserRegistration {
         return input.nextLine();
     }
 
+    //Method to get MobileNumber
+    public String getMobileNo()
+    {
+        System.out.println("Enter mobile number: ");
+        return input.nextLine();
+    }
+
+
 
     //Method for validation
     public void userValidator()
@@ -46,6 +55,10 @@ public class UserRegistration {
         boolean emailId=Pattern.matches("^[a-zA-Z.]+([a-z]+)?[@][a-z]+\\.[a-z]{2,3}(\\.[A-Za-z]{2,6})?", email);
         System.out.println("EmaiId is");
         printingResult(emailId);
+        this.mobileNo=getMobileNo();
+        boolean mobile=Pattern.matches("\\d{1,2}[\\s+]?\\d{1,10}",mobileNo);
+        System.out.println("Mobile Number is: ");
+        printingResult(mobile);
     }
 
     //Method to print result
