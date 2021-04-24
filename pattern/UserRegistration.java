@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -48,7 +49,6 @@ public class UserRegistration {
         System.out.println("Minimum 8 characters");
         System.out.println("Atleast 1 Uppercase");
         System.out.println("Atleast 1 Numeric");
-        System.out.println("Atleast 1 Special Character");
         return input.nextLine();
     }
 
@@ -64,7 +64,7 @@ public class UserRegistration {
         System.out.println("Last name is ");
         printingResult(lName);
         this.email=getEmail();
-        boolean emailId=Pattern.matches("^[a-zA-Z.]+([a-z]+)?[@][a-z]+\\.[a-z]{2,3}(\\.[A-Za-z]{2,6})?", email);
+        boolean emailId=Pattern.matches("^[\\\\D\\\\d.\\\\-\\\\+]+[@][a-z\\\\d]+\\\\.[a-z]{2,3}(\\\\.[a-z]{2,3})?", email);
         System.out.println("EmaiId is");
         printingResult(emailId);
         this.mobileNo=getMobileNo();
@@ -72,7 +72,7 @@ public class UserRegistration {
         System.out.println("Mobile Number is: ");
         printingResult(mobile);
         this.password=getPassword();
-        boolean correctPassword = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{8,}$",password);
+        boolean correctPassword = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$",password);
         System.out.println("Password is: ");
         printingResult(correctPassword);
     }
