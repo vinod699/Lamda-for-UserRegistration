@@ -37,6 +37,7 @@ public class UserRegistration {
     public String getMobileNo()
     {
         System.out.println("Enter mobile number: ");
+        System.out.println("Format: 91 1234567890");
         return input.nextLine();
     }
 
@@ -44,8 +45,8 @@ public class UserRegistration {
     public String getPassword()
     {
         System.out.println("Enter a valid password: ");
-        System.out.println("Rule 1:");
-        System.out.println("Minimum 8 characters");
+        System.out.println("Rule:");
+        System.out.println("Minimum 8 characters and atleast 1 upper case");
         return input.nextLine();
     }
 
@@ -69,7 +70,7 @@ public class UserRegistration {
         System.out.println("Mobile Number is: ");
         printingResult(mobile);
         this.password=getPassword();
-        boolean correctPassword = Pattern.matches("[a-zA-Z]{8,}",password);
+        boolean correctPassword = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z]).{8,}",password);
         System.out.println("Password is: ");
         printingResult(correctPassword);
     }
