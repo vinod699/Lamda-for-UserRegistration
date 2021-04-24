@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -46,7 +45,10 @@ public class UserRegistration {
     {
         System.out.println("Enter a valid password: ");
         System.out.println("Rule:");
-        System.out.println("Minimum 8 characters and atleast 1 upper case");
+        System.out.println("Minimum 8 characters");
+        System.out.println("Atleast 1 Uppercase");
+        System.out.println("Atleast 1 Numeric");
+        System.out.println("Atleast 1 Special Character");
         return input.nextLine();
     }
 
@@ -70,7 +72,7 @@ public class UserRegistration {
         System.out.println("Mobile Number is: ");
         printingResult(mobile);
         this.password=getPassword();
-        boolean correctPassword = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z]).{8,}",password);
+        boolean correctPassword = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{8,}$",password);
         System.out.println("Password is: ");
         printingResult(correctPassword);
     }
